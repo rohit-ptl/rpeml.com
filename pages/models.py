@@ -10,7 +10,10 @@ class Pages(models.Model):
         verbose_name_plural = 'Pages'
 
     title = models.CharField(max_length=100, blank=False, verbose_name='Title')
-    seo_title = models.CharField(max_length=100, null=True, blank=True, verbose_name='Seo title')
-    seo_description = models.TextField(null=True, blank=True, verbose_name='Seo title')
     slug = models.SlugField(max_length=180, blank=False)
     text = RichTextUploadingField()
+    seo_title = models.CharField(max_length=100, null=True, blank=True, verbose_name='Seo title')
+    seo_description = models.TextField(null=True, blank=True, verbose_name='Seo title')
+
+    def __str__(self):
+        return self.title
